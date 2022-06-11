@@ -9,4 +9,6 @@
 - [Logistic Regression](https://github.com/MiaZhang17/Study/blob/c34d5c565318ccf7639beb7d181afd15f808fba6/MachineLearning/02_LogisticRegression/LogisticRegression.ipynb)
 - [Decision Tree](https://github.com/MiaZhang17/Study/blob/c34d5c565318ccf7639beb7d181afd15f808fba6/MachineLearning/03_DecisionTree/DecisionTree.ipynb)
 - [Random Forest](https://github.com/MiaZhang17/Study/blob/c34d5c565318ccf7639beb7d181afd15f808fba6/MachineLearning/04_RandomForest/RandomForest.ipynb)
-- [K Means](https://github.com/MiaZhang17/Study/blob/c34d5c565318ccf7639beb7d181afd15f808fba6/MachineLearning/05_KMeans/KMeans.ipynb)
+- [SVM](https://github.com/MiaZhang17/Study/blob/c34d5c565318ccf7639beb7d181afd15f808fba6/MachineLearning/05_SVM/SVM.ipynb)
+- [Naive Bayes](https://github.com/MiaZhang17/Study/blob/c34d5c565318ccf7639beb7d181afd15f808fba6/MachineLearning/06_NaiveBayes/NaiveBayes.ipynb)
+- [K Means](https://github.com/MiaZhang17/Study/blob/c34d5c565318ccf7639beb7d181afd15f808fba6/MachineLearning/07_KMeans/KMeans.ipynb)

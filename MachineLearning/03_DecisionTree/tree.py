@@ -3,12 +3,14 @@ import operator
 
 random.seed(1)
 
+
 def unique_labels(rows, feature):
     labels = []
     for row in rows:
         if row[feature] not in labels:
             labels.append(row[feature])
     return labels
+
 
 def class_counts(rows):
     """Counts the number of each type of example in a dataset."""
@@ -21,16 +23,19 @@ def class_counts(rows):
         counts[label] += 1
     return counts
 
+
 def is_numeric(value):
     return isinstance(value, int) or isinstance(value, float)
+
 
 def gini(rows):
     counts = class_counts(rows)
     impurity = 1
     for label in counts:
         prob_of_label = counts[label] / float(len(rows))
-        impurity -= prob_of_label ** 2
+        impurity -= prob_of_label**2
     return impurity
+
 
 def partition(rows, feature, value):
     if is_numeric(rows[0][feature]):
@@ -52,6 +57,7 @@ def partition(rows, feature, value):
             groups.append(new_list)
         return groups
 
+
 def partition_word(rows, feature):
     groups = []
     counts = unique_labels(rows, feature)
@@ -71,8 +77,9 @@ def info_gain(children, current_uncertainty):
         total += len(child)
     for child in children:
         p = float(len(child)) / total
-        gain -=  p * gini(child)
+        gain -= p * gini(child)
     return gain
+
 
 def find_best_split(rows):
 
@@ -86,7 +93,6 @@ def find_best_split(rows):
         values = set([row[col] for row in rows])  # unique values in the column
 
         for val in values:  # for each value
-
 
             # try splitting the dataset
             splits = partition_word(rows, col)
@@ -107,18 +113,19 @@ def find_best_split(rows):
 
     return best_gain, best_question
 
+
 class Leaf:
     def __init__(self, rows, value):
         self.predictions = class_counts(rows)
         self.value = value
 
+
 class Decision_Node:
-    def __init__(self,
-                 question,
-                 branches, value):
+    def __init__(self, question, branches, value):
         self.question = question
         self.branches = branches
         self.value = value
+
 
 def build_tree(rows, value):
     # Try partitioing the dataset on each of the unique attribute,
@@ -148,20 +155,21 @@ def build_tree(rows, value):
     # dependingo on the answer.
     return Decision_Node(question, branches, value)
 
+
 def print_tree(node, question_dict, spacing=""):
     """World's most elegant tree printing function."""
 
     # Base case: we've reached a leaf
     if isinstance(node, Leaf):
-        print (spacing + "Predict", node.predictions)
+        print(spacing + "Predict", node.predictions)
         return
 
     # Print the question at this node
-    print (spacing + question_dict[node.question[0]])
+    print(spacing + question_dict[node.question[0]])
 
     # Call this function recursively on the true branch
     for i in range(len(node.branches)):
-        print (spacing + '--> Branch ' + node.branches[i].value+':')
+        print(spacing + "--> Branch " + node.branches[i].value + ":")
         print_tree(node.branches[i], question_dict, spacing + "  ")
 
 
@@ -175,12 +183,14 @@ def classify(row, node):
         if branch.value == answer:
             return classify(row, branch)
 
+
 def make_cars():
     f = open("car.data", "r")
     cars = []
     for line in f:
         cars.append(line.rstrip().split(","))
     return cars
-  
+
+
 data = make_cars()
 tree = build_tree(data, "")

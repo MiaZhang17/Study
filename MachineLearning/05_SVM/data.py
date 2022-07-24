@@ -9,37 +9,37 @@ blue_y = []
 red_x = []
 red_y = []
 
-#First Blue Column
+# First Blue Column
 for i in range(50):
     blue_x.append(uniform(2, 4))
     blue_y.append(uniform(0, 8))
 
-#Horizontal Blue
+# Horizontal Blue
 for i in range(25):
     blue_x.append(uniform(4, 8))
     blue_y.append(uniform(5, 6))
 
-#Left Red
+# Left Red
 for i in range(30):
-    red_x.append(uniform(0,1.9))
+    red_x.append(uniform(0, 1.9))
     red_y.append(uniform(0, 10))
 
-#Red above blue column
+# Red above blue column
 for i in range(15):
     red_x.append(uniform(2, 4))
     red_y.append(uniform(8.1, 10))
 
-#Red below blue horizontal
+# Red below blue horizontal
 for i in range(25):
-    red_x.append(uniform(4.1,10))
+    red_x.append(uniform(4.1, 10))
     red_y.append(uniform(0, 4.9))
 
-#Red above blue horizontal
+# Red above blue horizontal
 for i in range(25):
-    red_x.append(uniform(4.1,10))
+    red_x.append(uniform(4.1, 10))
     red_y.append(uniform(6.1, 10))
 
-#Smaller blue column
+# Smaller blue column
 for i in range(10):
     blue_x.append(uniform(6.3, 6.8))
     blue_y.append(uniform(0, 6))
